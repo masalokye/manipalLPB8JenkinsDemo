@@ -1,6 +1,64 @@
 package jenkinsDemo1;
 
-import java.io.FileInputStream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class JenkinsDemo1Test {
+	WebDriver driver;
+	@Test
+	  public void search() {
+		  driver.findElement(By.name("q")).sendKeys("manipal");
+		  System.out.println(driver.getTitle());
+	  }
+	 
+	 
+	 @BeforeMethod
+	  public void beforeMethod() {
+		  System.setProperty("webdriver.gecko.driver", "C:\\Users\\ms130k\\Desktop\\Selenium_ITO\\geckodriver.exe");
+			driver = new FirefoxDriver();
+			driver.get("https://www.google.com");
+			}
+	 @AfterMethod
+	  public void afterMethod() {
+		  driver.close();
+	  
+	  
+
+  }
+  
+  
+
+ 
+  }
+
+
+/*
+ @Test
+  public void search() {
+	  driver.findElement(By.name("q")).sendKeys("manipal");
+	  System.out.println(driver.getTitle());
+  }
+ 
+ 
+ @BeforeMethod
+  public void beforeMethod() {
+	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\ms130k\\Desktop\\Selenium_ITO\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.get("https://www.google.com");
+		}
+ @AfterMethod
+  public void afterMethod() {
+	  driver.close();
+*/
+
+/*
+ 
+ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -18,16 +76,8 @@ import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-
-public class JenkinsDemo1Test {
-	WebDriver driver;
-  @Test
-  public void search() throws InterruptedException {
-	  //driver.findElement(By.name("q")).sendKeys("manipal");
-	  //System.out.println(driver.getTitle());
-	  
-	  System.out.println(System.getProperty("user.dir"));
+ 
+System.out.println(System.getProperty("user.dir"));
 		
 		Properties prop = new Properties();
 		    //load a properties file from class path, inside static method
@@ -101,30 +151,4 @@ public class JenkinsDemo1Test {
 			driver.findElement(By.xpath("/html/body/div[1]/div/table/tbody/tr[1]/td[2]/div[2]/div/div[1]/div[3]/div/div[2]/div/div[1]/div/div[1]/span[3]/div/span[4]/a/img")).click();
 			Thread.sleep(3000L);
 			driver.quit();
-
-  }
-  
-  
-
- 
-  }
-
-
-/*
- @Test
-  public void search() {
-	  driver.findElement(By.name("q")).sendKeys("manipal");
-	  System.out.println(driver.getTitle());
-  }
- 
- 
- @BeforeMethod
-  public void beforeMethod() {
-	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\ms130k\\Desktop\\Selenium_ITO\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.get("https://www.google.com");
-		}
- @AfterMethod
-  public void afterMethod() {
-	  driver.close();
 */
